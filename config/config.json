@@ -1,0 +1,8 @@
+{
+    "server": {
+        "addr": ":1443",
+        "host": "localhost",
+        "certFile": "TLS/cert.pem",
+        "keyFile": "TLS/key.pem"
+    }
+}
