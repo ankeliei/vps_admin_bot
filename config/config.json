@@ -5,7 +5,7 @@
         "keyFile": "TLS/key.pem"
     },
     "telebot": {
-        "botApi" : "7660182281:AAHJeljOORSuqJHRaZxFg4aQRJ-cgKXREPI",
+        "botApi" : "",
         "debug" : false,
         "timeout": 60
     }
