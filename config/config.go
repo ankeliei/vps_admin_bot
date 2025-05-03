@@ -9,13 +9,21 @@ import (
 type config struct {
 	Server struct {
 		Addr     string `json:"addr"`
-		Host     string `json:"host"`
 		CertFile string `json:"certFile"`
 		KeyFile  string `json:"keyFile"`
 	} `json:"server"`
+	Telebot struct {
+		BotApi  string `json:"botApi"`
+		Debug   bool   `json:"debug"`
+		Timeout int    `json:"timeout"`
+	} `json:"telebot"`
 }
 
-func LoadJSONConfig(path string) (*config, error) {
+var (
+	ServerCFG *config
+)
+
+func loadJSONConfig(path string) (*config, error) {
 	fmt.Print(path)
 	data, err := os.ReadFile(path)
 	if err != nil {
@@ -27,4 +35,12 @@ func LoadJSONConfig(path string) (*config, error) {
 	}
 	fmt.Print(config)
 	return &config, nil
+}
+
+func init() {
+	var err error
+	ServerCFG, err = loadJSONConfig("/home/ank/workspace/vps_admin_bot/config/config.json")
+	if err != nil {
+		panic(err)
+	}
 }
